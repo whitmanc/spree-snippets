@@ -1,6 +1,10 @@
 <%= stylesheet_link_tag 'formtastic' %>
 
 <%= f.inputs do %>
-  <%= f.input :slug %>
+  <% if params[:action] == "edit" %>
+    <%= f.input :slug, :input_html => { disabled: true } %>
+  <% else %>
+    <%= f.input :slug %>
+  <% end %>
   <%= f.input :content, :as => :text %>
 <% end %>
